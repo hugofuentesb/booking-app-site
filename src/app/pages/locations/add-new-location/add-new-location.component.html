@@ -1,0 +1,28 @@
+
+<div class="field">
+  <label for="txtName" class="block">Name</label>
+  <input [(ngModel)]="location.name" id="txtName" type="username" aria-describedby="username1-help" pInputText  />
+</div>
+
+<div class="field">
+  <label for="cmbType" class="block">Type</label>
+  <p-dropdown [options]="locationTypes$ | async" [(ngModel)]="location.id_location_type" placeholder="Select a Type" optionLabel="name" optionValue="id"
+              [showClear]="true" id="cmbType"></p-dropdown>
+</div>
+
+
+<div class="field">
+  <label for="txtDescription" class="block">Description</label>
+  <textarea pInputTextarea [(ngModel)]="location.description" id="txtDescription"></textarea>
+</div>
+
+<div class="field">
+  <label for="username1" class="block">People Capacity</label>
+  <p-inputNumber [(ngModel)]="location.peopleCapacity" inputId="minmax" inputId="minmax" mode="decimal" [min]="0" [max]="100" > </p-inputNumber>
+</div>
+
+<p-button label="Grabar" (onClick)="createLocation()"></p-button>
+
+
+<p-messages [(value)]="msgs"></p-messages>
+

@@ -1,0 +1,20 @@
+
+<div class="field">
+  <label for="txtName" class="block">Name</label>
+  <input [(ngModel)]="locationType.name" id="txtName" type="username" aria-describedby="username1-help" pInputText  />
+</div>
+
+
+
+
+<div class="field">
+  <label for="txtDescription" class="block">Description</label>
+  <textarea pInputTextarea [(ngModel)]="locationType.description" id="txtDescription"></textarea>
+</div>
+
+
+<p-button label="Grabar" (onClick)="createlocationType()"></p-button>
+
+
+<p-messages [(value)]="msgs"></p-messages>
+

@@ -1,0 +1,49 @@
+<!-- <p>locations works!</p> -->
+
+<p-panel header="Filtros de Búsqueda" [toggleable]="true">
+  <label>Tipo de Localidad:</label>
+
+  <p-dropdown [(ngModel)]="selectedLocationType" (onChange)="changeLocatonType()" [options]="locationTypes$ | async" placeholder="Select a Type" optionLabel="name" optionValue="id" [showClear]="true">
+
+  </p-dropdown>
+</p-panel>
+
+
+
+
+
+<p-table [value]="locations$ | async" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Capacity</th>
+          <th>Active</th>
+          <th></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-location>
+      <tr>
+          <td>{{location.id}}</td>
+          <td>{{location.name}}</td>
+          <td>{{location.description}}</td>
+          <td>{{location.people_capacity}}</td>
+          <td>{{location.active_row}}</td>
+          <td>
+
+            <!-- <i class="fa fa-bath" aria-hidden="true"></i> -->
+            <p-button (onClick)="showEditDialog=true">
+              <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            </p-button>
+
+
+
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="showEditDialog" [style]="{width: '50vw'}">
+  <app-add-new-location></app-add-new-location>
+</p-dialog>
